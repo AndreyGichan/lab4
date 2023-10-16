@@ -1,16 +1,41 @@
-# This is a sample Python script.
+import math
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+while True:
+    try:
+        kod = int(input("Выберете задание или выберете 0 для выхода: "))
+        match kod:
+            case 1:
+                class Square:
+                    def __init__(self, side):
+                        self.side = side
+
+                    def calculate_perimeter(self):
+                        return 4 * self.side
+
+                    def calculate_area(self):
+                        return self.side ** 2
+
+                    def calculate_diagonal(self):
+                        return math.sqrt(2) * self.side
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+                while True:
+                    try:
+                        a = float(input("Введите значение стороны квадрата: "))
+                        break
+                    except ValueError:
+                        print("Необходимо ввести число")
+                square = Square(a)
+                perimeter = square.calculate_perimeter()
+                print("Периметр квадрата:", perimeter)
 
+                area = round(square.calculate_area(), 2)
+                print("Площадь квадрата:", area)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+                diagonal = round(square.calculate_diagonal(), 2)
+                print("Диагональ квадрата:", diagonal)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+            case 0:
+                break
+    except ValueError:
+        print("Необходимо ввести натуральное число")
