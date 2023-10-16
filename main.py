@@ -245,6 +245,44 @@ while True:
                     except ValueError:
                         print("Необходимо ввести натуральное число")
 
+            case 4:
+                class Auto:
+                    total_cars = 0
+
+                    def __init__(self, brand, model, year):
+                        self.brand = brand
+                        self.model = model
+                        self.year = year
+                        Auto.total_cars += 1
+
+
+                    def start_engine(self):
+                        print(f"Двигатель {self.brand} {self.model} запущен.")
+
+
+                    def stop_engine(self):
+                        print(f"Двигатель {self.brand} {self.model} заглушен.")
+
+
+                    @staticmethod
+                    def signal():
+                        print("Beep beep!")
+
+
+                    @classmethod
+                    def get_total_cars(cls):
+                        return cls.total_cars
+
+                auto1 = Auto("Toyota", "Supra", 2000)
+                auto1.start_engine()
+                auto2 = Auto("Honda", "Civic", 2010)
+                auto2.stop_engine()
+                auto3 = Auto("Nissan", "GTR", 2020)
+                auto3.start_engine()
+                Auto.signal()
+
+                print(Auto.get_total_cars())
+
             case 0:
                 break
     except ValueError:
