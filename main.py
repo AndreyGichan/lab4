@@ -34,7 +34,30 @@ while True:
 
                 diagonal = round(square.calculate_diagonal(), 2)
                 print("Диагональ квадрата:", diagonal)
-
+            case 2:
+                class Stationery:
+                    def __init__(self, title):
+                        self.title = title
+                    def draw(self):
+                        print("Рисуем")
+                class Pen(Stationery):
+                    def draw(self):
+                        print("Рисуем ручкой")
+                class Pencil(Stationery):
+                    def draw(self):
+                        print("Рисуем карандашом")
+                class Handle(Stationery):
+                    def draw(self):
+                        print("Рисуем маркером")
+                pen = Pen("Ручка")
+                print(f'{pen.title}:')
+                pen.draw()
+                pencil = Pencil("Карандаш")
+                print(f'{pencil.title}:')
+                pencil.draw()
+                handle = Handle("Маркер")
+                print(f'{handle.title}:')
+                handle.draw()
             case 0:
                 break
     except ValueError:
